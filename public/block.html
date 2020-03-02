@@ -11,12 +11,13 @@
             img = document.getElementById("PacMan");
             pos += 20;
             img.style.left = pos + "px";
-            if (flag === 1) {
+            if (flag == 1) {
                 img.src = url + '/pac?id=' + flag; // use flag to choose image
                 flag = 2;
             } else {
                 flag = 1;
             }
+            output (flag);
             // send position data to Server in url
             fetch(url + '/set?x=' + pos);
         }
@@ -25,5 +26,5 @@
 
 <body>
     <p>Click on PacMan and the position will be sent to the server".</p>
-    <img id="PacMan" onclick="Run()" style="position:absolute">
+    <img id="PacMan" src='http://localhost:3000/pac?id=2' onclick="Run()" style="position:absolute">
 </body>
